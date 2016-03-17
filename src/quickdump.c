@@ -14,30 +14,27 @@ char *r16[] = {"ax","cx","dx","bx","sp","bp","si","di"};
 char *r32[] = {"eax","ecx","edx","ebx","esp","ebp","esi","edi"};
 char *seg[] = {"ds","es","fs","gs","ss","cs","ip"};
 
-#define decodeSIB() \
-    base = r32[*b&0x07]; \
-    \
-    indx = r32[(*b&0x38)>>3]; \
-    \
-    scale = ((*b&0xc0)>>6)*2;         \
-\
-    if(scale && !indx){          \
+#define decodeSIB()                 \
+    base = r32[*b&0x07];            \
+    indx = r32[(*b&0x38)>>3];       \
+    scale = ((*b&0xc0)>>6)*2;       \
+    if(scale && !indx){             \
         puts("Invalid SIB byte.");  \
         exit(-1);                   \
     }
 
 #define setG()                              \
-    reg = (*b&0x38)>>3;                 \
+    reg = (*b&0x38)>>3;                     \
     if(!Gsz){                               \
     } else if(Gsz == 1){                    \
-        G = r8[reg];                \
+        G = r8[reg];                        \
     } else if(Gsz == 2){                    \
-        G = r16[reg];               \
+        G = r16[reg];                       \
     } else if(Gsz == 3){                    \
-        G = r32[reg];               \
+        G = r32[reg];                       \
     } else if(Gsz == 4){                    \
-        if(reg < 8){                \
-            G = seg[reg];           \
+        if(reg < 8){                        \
+            G = seg[reg];                   \
         } else{                             \
             puts("Invalid Mod R/M byte.");  \
             exit(-1);                       \
@@ -383,7 +380,6 @@ int decode(unsigned char *a){
     int flip_imm_sz = 0;
     int EG = 1; //specifices operand order for MOD R/M instructions
     int B  = 1; //specifies operand size for MOD R/M instructions
-                //0 = word or dword, 1 = byte, 2 = word
     char *s, *prefix, *seg_oride = "\0";
     char op1[64] = {0};
     
@@ -1955,6 +1951,7 @@ int main(int argc, char **argv){
           elf_hdr->e_entry < p_hdr->p_vaddr + p_hdr->p_filesz){
 
             f_entry = (unsigned char *)((int)p_hdr->p_offset + entry- p_hdr->p_vaddr);
+            sz = f_entry + p_hdr->p_filesz; //define stopping point for linear sweep
             break;
 
         }
@@ -1971,7 +1968,7 @@ int main(int argc, char **argv){
     f_entry = (unsigned char *)((int)elf_hdr + (int)f_entry);
     instruct = f_entry;
    
-    while(1){
+    while(instruct < sz){
         instruct += decode(instruct);
     }
 

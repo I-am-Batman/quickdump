@@ -1,2 +1,2 @@
 all:
-	gcc -m32 -o bin/quickdump src/quickdump.c
+	gcc -m32 -w -o bin/quickdump src/quickdump.c
