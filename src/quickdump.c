@@ -1414,9 +1414,9 @@ int decode(unsigned char *a){
                 s = "mov";
                 b += decodeModSM(++b, op1, sizeof(op1), 1, 4, flip_addr_sz);
                 break;
-            case 0x8d:    //add filter for mem only operand
+            case 0x8d: 
                 s = "lea";
-                b += decodeModSM(++b, op1, sizeof(op1), 0, flip_imm_sz ? 2: 3, flip_addr_sz);
+                b += decodeModSM_memonly(++b, op1, sizeof(op1), 0, flip_imm_sz ? 2: 3, flip_addr_sz);
                 break;
             case 0x8e:
                 s = "mov";
