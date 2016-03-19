@@ -1124,7 +1124,7 @@ int decode(unsigned char *a){
                     ++b;
                 } else{
                     snprintf(op1+len, sizeof(op1)-len, ", %p", *(int *)++b);
-                    b += 2;
+                    b += 3;
                 }
                 break;
             case 0x6a:
@@ -1307,7 +1307,7 @@ int decode(unsigned char *a){
                     ++b;
                 } else{
                     snprintf(op1+len, sizeof(op1)-len, ", %p", *(int *)++b);
-                    b += 2;
+                    b += 3;
                 }
                 break;
            case 0x82:
@@ -1785,7 +1785,7 @@ int decode(unsigned char *a){
                     ++b;
                 } else{
                     snprintf(op1+len, sizeof(op1)-len, ", %p", *(int *)++b);
-                    b += 2;
+                    b += 3;
                 }
                 break;
             case 0xc8:
@@ -2180,34 +2180,34 @@ int decode(unsigned char *a){
                 }
                 break;
             case 0xff:
-                switch((*b&0x38)/8){
+                switch((*++b&0x38)>>3){
                     case 0:
                         s = "inc";
-                        b += decodeModSM(++b, op1, sizeof(op1), 1, 0, flip_addr_sz);
+                        b += decodeModSM(b, op1, sizeof(op1), 1, 0, flip_addr_sz);
                         break;
                     case 1:
                         s = "dec";
-                        b += decodeModSM(++b, op1, sizeof(op1), 1, 0, flip_addr_sz);
+                        b += decodeModSM(b, op1, sizeof(op1), 1, 0, flip_addr_sz);
                         break;
                     case 2:
                         s = "call";
-                        b += decodeModSM(++b, op1, sizeof(op1), 1, 0, flip_addr_sz);
+                        b += decodeModSM(b, op1, sizeof(op1), 1, 0, flip_addr_sz);
                         break;
                     case 3:  //add seg select
                         s = "callf";
-                        b += decodeModSM_memonly(++b, op1, sizeof(op1), 1, 0, flip_addr_sz);
+                        b += decodeModSM_memonly(b, op1, sizeof(op1), 1, 0, flip_addr_sz);
                         break;
                     case 4:
                         s = "jmp";
-                        b += decodeModSM(++b, op1, sizeof(op1), 1, 0, flip_addr_sz);
+                        b += decodeModSM(b, op1, sizeof(op1), 1, 0, flip_addr_sz);
                         break;
                     case 5:  //add seg select
                         s = "jmpf";
-                        b += decodeModSM_memonly(++b, op1, sizeof(op1), 1, 0, flip_addr_sz);
+                        b += decodeModSM_memonly(b, op1, sizeof(op1), 1, 0, flip_addr_sz);
                         break;
                     case 6:
                         s = "push";
-                        b += decodeModSM(++b, op1, sizeof(op1), 1, 0, flip_addr_sz);
+                        b += decodeModSM(b, op1, sizeof(op1), 1, 0, flip_addr_sz);
                         break;
                     default:
                         puts("Invalid Mod R/M byte.");
@@ -2273,7 +2273,6 @@ int main(int argc, char **argv){
           elf_hdr->e_entry < p_hdr->p_vaddr + p_hdr->p_filesz){
 
             f_entry = (unsigned char *)((int)p_hdr->p_offset + entry- p_hdr->p_vaddr);
-            sz = f_entry + p_hdr->p_filesz; //define stopping point for linear sweep
             break;
 
         }
@@ -2288,6 +2287,7 @@ int main(int argc, char **argv){
     }   
 
     f_entry = (unsigned char *)((int)elf_hdr + (int)f_entry);
+    sz = f_entry + p_hdr->p_filesz; //define stopping point for linear sweep
     instruct = f_entry;
    
     while(instruct < sz){

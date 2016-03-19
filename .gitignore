@@ -6,4 +6,4 @@
 *.til
 *.i64
 *.swp
-test
+test*
