@@ -6,7 +6,7 @@ quickdump is an [indev] x86 disassembler that uses uses a single, verbose jump t
 to-do
 -----
 
-* validate Mod R/M for mem-only operands
+* add bound and float instructions
 * debug SIB formatting
 * impliment segment overrides
 * validate segment override prefixes
