@@ -80,7 +80,7 @@ int decodeModSM(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = "[di]";
                 break;
             case 0x06:
-                snprintf(ebuf, sizeof(ebuf), "ds:%p", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "ds:0x%x", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
@@ -88,73 +88,73 @@ int decodeModSM(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = "[bx]";
                 break;
             case 0x40:
-                snprintf(ebuf, sizeof(ebuf), "[bx+si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x41:
-                snprintf(ebuf, sizeof(ebuf), "[bx+di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x42:
-                snprintf(ebuf, sizeof(ebuf), "[bp+si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x43:
-                snprintf(ebuf, sizeof(ebuf), "[bp+di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x44:
-                snprintf(ebuf, sizeof(ebuf), "[si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x45:
-                snprintf(ebuf, sizeof(ebuf), "[di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x46:
-                snprintf(ebuf, sizeof(ebuf), "[bp+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x47:
-                snprintf(ebuf, sizeof(ebuf), "[bx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+0x%x]", *(char *)++b); 
                 E = ebuf;
             case 0x80:
-                snprintf(ebuf, sizeof(ebuf), "[bx+si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x81:
-                snprintf(ebuf, sizeof(ebuf), "[bx+di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x82:
-                snprintf(ebuf, sizeof(ebuf), "[bp+si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x83:
-                snprintf(ebuf, sizeof(ebuf), "[bp+di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x84:
-                snprintf(ebuf, sizeof(ebuf), "[si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x85:
-                snprintf(ebuf, sizeof(ebuf), "[di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x86:
-                snprintf(ebuf, sizeof(ebuf), "[bp+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x87:
-                snprintf(ebuf, sizeof(ebuf), "[bx+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
@@ -219,7 +219,7 @@ int decodeModSM(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = ebuf;
                 break;
             case 0x05:
-                snprintf(ebuf, sizeof(ebuf), "ds:%p", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "ds:0x%x", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -230,19 +230,19 @@ int decodeModSM(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = "[edi]";
                 break;
              case 0x40:
-                snprintf(ebuf, sizeof(ebuf), "[eax+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[eax+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x41:
-                snprintf(ebuf, sizeof(ebuf), "[ecx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ecx+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x42:
-                snprintf(ebuf, sizeof(ebuf), "[edx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edx+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x43:
-                snprintf(ebuf, sizeof(ebuf), "[ebx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebx+0x%x]", *(char *)++b); 
                 E = ebuf;
             case 0x44:
                 ++b;
@@ -261,37 +261,37 @@ int decodeModSM(unsigned char *a, char *op, int order, int Gsz, int Esz){
                     snprintf(ebuf, sizeof(ebuf), "[%s+%s*%i", base, indx, scale);
                 }
                 len = strlen(ebuf);
-                snprintf(ebuf+len, sizeof(ebuf)-len, "+%p]", *(char *)++b);
+                snprintf(ebuf+len, sizeof(ebuf)-len, "+0x%x]", *(char *)++b);
                 E = ebuf;
                 break;
             case 0x45:
-                snprintf(ebuf, sizeof(ebuf), "[ebp+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebp+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x46:
-                snprintf(ebuf, sizeof(ebuf), "[esi+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[esi+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x47:
-                snprintf(ebuf, sizeof(ebuf), "[edi+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edi+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x80:
-                snprintf(ebuf, sizeof(ebuf), "[eax+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[eax+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x81:
-                snprintf(ebuf, sizeof(ebuf), "[ecx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ecx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 break;
             case 0x82:
-                snprintf(ebuf, sizeof(ebuf), "[edx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x83:
-                snprintf(ebuf, sizeof(ebuf), "[ebx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -312,22 +312,22 @@ int decodeModSM(unsigned char *a, char *op, int order, int Gsz, int Esz){
                     snprintf(ebuf, sizeof(ebuf), "[%s+%s*%i", base, indx, scale);
                 }
                 len = strlen(ebuf);
-                snprintf(ebuf+len, sizeof(ebuf)-len, "+%p]", *(int *)++b);
+                snprintf(ebuf+len, sizeof(ebuf)-len, "+0x%x]", *(int *)++b);
                 b += 3;
                 E = ebuf;
                 break;
            case 0x85:
-                snprintf(ebuf, sizeof(ebuf), "[ebp+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebp+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x86:
-                snprintf(ebuf, sizeof(ebuf), "[esi+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[esi+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x87:
-                snprintf(ebuf, sizeof(ebuf), "[edi+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edi+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -407,7 +407,7 @@ int decodeModSM_float(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = "[di]";
                 break;
             case 0x06:
-                snprintf(ebuf, sizeof(ebuf), "ds:%p", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "ds:0x%x", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
@@ -415,73 +415,73 @@ int decodeModSM_float(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = "[bx]";
                 break;
             case 0x40:
-                snprintf(ebuf, sizeof(ebuf), "[bx+si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x41:
-                snprintf(ebuf, sizeof(ebuf), "[bx+di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x42:
-                snprintf(ebuf, sizeof(ebuf), "[bp+si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x43:
-                snprintf(ebuf, sizeof(ebuf), "[bp+di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x44:
-                snprintf(ebuf, sizeof(ebuf), "[si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x45:
-                snprintf(ebuf, sizeof(ebuf), "[di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x46:
-                snprintf(ebuf, sizeof(ebuf), "[bp+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x47:
-                snprintf(ebuf, sizeof(ebuf), "[bx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+0x%x]", *(char *)++b); 
                 E = ebuf;
             case 0x80:
-                snprintf(ebuf, sizeof(ebuf), "[bx+si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x81:
-                snprintf(ebuf, sizeof(ebuf), "[bx+di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x82:
-                snprintf(ebuf, sizeof(ebuf), "[bp+si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x83:
-                snprintf(ebuf, sizeof(ebuf), "[bp+di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x84:
-                snprintf(ebuf, sizeof(ebuf), "[si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x85:
-                snprintf(ebuf, sizeof(ebuf), "[di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x86:
-                snprintf(ebuf, sizeof(ebuf), "[bp+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x87:
-                snprintf(ebuf, sizeof(ebuf), "[bx+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
@@ -546,7 +546,7 @@ int decodeModSM_float(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = ebuf;
                 break;
             case 0x05:
-                snprintf(ebuf, sizeof(ebuf), "ds:%p", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "ds:0x%x", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -557,19 +557,19 @@ int decodeModSM_float(unsigned char *a, char *op, int order, int Gsz, int Esz){
                 E = "[edi]";
                 break;
              case 0x40:
-                snprintf(ebuf, sizeof(ebuf), "[eax+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[eax+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x41:
-                snprintf(ebuf, sizeof(ebuf), "[ecx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ecx+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x42:
-                snprintf(ebuf, sizeof(ebuf), "[edx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edx+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x43:
-                snprintf(ebuf, sizeof(ebuf), "[ebx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebx+0x%x]", *(char *)++b); 
                 E = ebuf;
             case 0x44:
                 ++b;
@@ -588,37 +588,37 @@ int decodeModSM_float(unsigned char *a, char *op, int order, int Gsz, int Esz){
                     snprintf(ebuf, sizeof(ebuf), "[%s+%s*%i", base, indx, scale);
                 }
                 len = strlen(ebuf);
-                snprintf(ebuf+len, sizeof(ebuf)-len, "+%p]", *(char *)++b);
+                snprintf(ebuf+len, sizeof(ebuf)-len, "+0x%x]", *(char *)++b);
                 E = ebuf;
                 break;
             case 0x45:
-                snprintf(ebuf, sizeof(ebuf), "[ebp+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebp+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x46:
-                snprintf(ebuf, sizeof(ebuf), "[esi+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[esi+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x47:
-                snprintf(ebuf, sizeof(ebuf), "[edi+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edi+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x80:
-                snprintf(ebuf, sizeof(ebuf), "[eax+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[eax+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x81:
-                snprintf(ebuf, sizeof(ebuf), "[ecx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ecx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 break;
             case 0x82:
-                snprintf(ebuf, sizeof(ebuf), "[edx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x83:
-                snprintf(ebuf, sizeof(ebuf), "[ebx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -639,22 +639,22 @@ int decodeModSM_float(unsigned char *a, char *op, int order, int Gsz, int Esz){
                     snprintf(ebuf, sizeof(ebuf), "[%s+%s*%i", base, indx, scale);
                 }
                 len = strlen(ebuf);
-                snprintf(ebuf+len, sizeof(ebuf)-len, "+%p]", *(int *)++b);
+                snprintf(ebuf+len, sizeof(ebuf)-len, "+0x%x]", *(int *)++b);
                 b += 3;
                 E = ebuf;
                 break;
            case 0x85:
-                snprintf(ebuf, sizeof(ebuf), "[ebp+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebp+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x86:
-                snprintf(ebuf, sizeof(ebuf), "[esi+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[esi+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x87:
-                snprintf(ebuf, sizeof(ebuf), "[edi+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edi+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -734,7 +734,7 @@ int decodeModSM_memonly(unsigned char *a, char *op, int order, int Gsz, int Esz)
                 E = "[di]";
                 break;
             case 0x06:
-                snprintf(ebuf, sizeof(ebuf), "ds:%p", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "ds:0x%x", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
@@ -742,73 +742,73 @@ int decodeModSM_memonly(unsigned char *a, char *op, int order, int Gsz, int Esz)
                 E = "[bx]";
                 break;
             case 0x40:
-                snprintf(ebuf, sizeof(ebuf), "[bx+si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x41:
-                snprintf(ebuf, sizeof(ebuf), "[bx+di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x42:
-                snprintf(ebuf, sizeof(ebuf), "[bp+si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x43:
-                snprintf(ebuf, sizeof(ebuf), "[bp+di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x44:
-                snprintf(ebuf, sizeof(ebuf), "[si+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[si+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x45:
-                snprintf(ebuf, sizeof(ebuf), "[di+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[di+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x46:
-                snprintf(ebuf, sizeof(ebuf), "[bp+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x47:
-                snprintf(ebuf, sizeof(ebuf), "[bx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+0x%x]", *(char *)++b); 
                 E = ebuf;
             case 0x80:
-                snprintf(ebuf, sizeof(ebuf), "[bx+si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x81:
-                snprintf(ebuf, sizeof(ebuf), "[bx+di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x82:
-                snprintf(ebuf, sizeof(ebuf), "[bp+si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x83:
-                snprintf(ebuf, sizeof(ebuf), "[bp+di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x84:
-                snprintf(ebuf, sizeof(ebuf), "[si+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[si+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x85:
-                snprintf(ebuf, sizeof(ebuf), "[di+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[di+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x86:
-                snprintf(ebuf, sizeof(ebuf), "[bp+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bp+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
             case 0x87:
-                snprintf(ebuf, sizeof(ebuf), "[bx+%p]", *(short *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[bx+0x%x]", *(short *)++b); 
                 E = ebuf;
                 ++b;
                 break;
@@ -849,7 +849,7 @@ int decodeModSM_memonly(unsigned char *a, char *op, int order, int Gsz, int Esz)
                 E = ebuf;
                 break;
             case 0x05:
-                snprintf(ebuf, sizeof(ebuf), "ds:%p", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "ds:0x%x", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -860,19 +860,19 @@ int decodeModSM_memonly(unsigned char *a, char *op, int order, int Gsz, int Esz)
                 E = "[edi]";
                 break;
              case 0x40:
-                snprintf(ebuf, sizeof(ebuf), "[eax+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[eax+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x41:
-                snprintf(ebuf, sizeof(ebuf), "[ecx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ecx+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x42:
-                snprintf(ebuf, sizeof(ebuf), "[edx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edx+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x43:
-                snprintf(ebuf, sizeof(ebuf), "[ebx+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebx+0x%x]", *(char *)++b); 
                 E = ebuf;
             case 0x44:
                 ++b;
@@ -891,37 +891,37 @@ int decodeModSM_memonly(unsigned char *a, char *op, int order, int Gsz, int Esz)
                     snprintf(ebuf, sizeof(ebuf), "[%s+%s*%i", base, indx, scale);
                 }
                 len = strlen(ebuf);
-                snprintf(ebuf+len, sizeof(ebuf)-len, "+%p]", *(char *)++b);
+                snprintf(ebuf+len, sizeof(ebuf)-len, "+0x%x]", *(char *)++b);
                 E = ebuf;
                 break;
             case 0x45:
-                snprintf(ebuf, sizeof(ebuf), "[ebp+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebp+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x46:
-                snprintf(ebuf, sizeof(ebuf), "[esi+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[esi+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x47:
-                snprintf(ebuf, sizeof(ebuf), "[edi+%p]", *(char *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edi+0x%x]", *(char *)++b); 
                 E = ebuf;
                 break;
             case 0x80:
-                snprintf(ebuf, sizeof(ebuf), "[eax+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[eax+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x81:
-                snprintf(ebuf, sizeof(ebuf), "[ecx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ecx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 break;
             case 0x82:
-                snprintf(ebuf, sizeof(ebuf), "[edx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x83:
-                snprintf(ebuf, sizeof(ebuf), "[ebx+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebx+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -942,22 +942,22 @@ int decodeModSM_memonly(unsigned char *a, char *op, int order, int Gsz, int Esz)
                     snprintf(ebuf, sizeof(ebuf), "[%s+%s*%i", base, indx, scale);
                 }
                 len = strlen(ebuf);
-                snprintf(ebuf+len, sizeof(ebuf)-len, "+%p]", *(int *)++b);
+                snprintf(ebuf+len, sizeof(ebuf)-len, "+0x%x]", *(int *)++b);
                 b += 3;
                 E = ebuf;
                 break;
            case 0x85:
-                snprintf(ebuf, sizeof(ebuf), "[ebp+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[ebp+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x86:
-                snprintf(ebuf, sizeof(ebuf), "[esi+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[esi+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
             case 0x87:
-                snprintf(ebuf, sizeof(ebuf), "[edi+%p]", *(int *)++b); 
+                snprintf(ebuf, sizeof(ebuf), "[edi+0x%x]", *(int *)++b); 
                 E = ebuf;
                 b += 3;
                 break;
@@ -1066,15 +1066,15 @@ int decode(unsigned char *a){
             case 0x04:
                 s = "add";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x05:
                 s = "add";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1103,15 +1103,15 @@ int decode(unsigned char *a){
             case 0x0c:
                 s = "or";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x0d:
                 s = "or";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1137,15 +1137,15 @@ int decode(unsigned char *a){
             case 0x14:
                 s = "adc";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x15:
                 s = "adc";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1174,15 +1174,15 @@ int decode(unsigned char *a){
             case 0x1c:
                 s = "sbb";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x1d:
                 s = "sbb";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1211,15 +1211,15 @@ int decode(unsigned char *a){
             case 0x24:
                 s = "and";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x25:
                 s = "and";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1245,15 +1245,15 @@ int decode(unsigned char *a){
             case 0x2c:
                 s = "sub";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x2d:
                 s = "sub";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1279,15 +1279,15 @@ int decode(unsigned char *a){
             case 0x34:
                 s = "xor";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x35:
                 s = "xor";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1313,15 +1313,15 @@ int decode(unsigned char *a){
             case 0x3c:
                 s = "cmp";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0x3d:
                 s = "cmp";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1437,10 +1437,10 @@ int decode(unsigned char *a){
             case 0x68:
                 s = "push";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "%p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "%p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1449,22 +1449,22 @@ int decode(unsigned char *a){
                 b += decodeModSM(++b, op1, 0, flip_imm_sz ? 2: 3, flip_addr_sz);
                 len = strlen(op1);
                 if(flip_imm_sz){
-                    snprintf(op1+len, sizeof(op1)-len, ", %p", *(short *)++b);
+                    snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1+len, sizeof(op1)-len, ", %p", *(int *)++b);
+                    snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0x6a:
                 s = "push";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)*b);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)*b);
             case 0x6b:
                 s = "imul";
                 b += decodeModSM(++b, op1, 0, flip_imm_sz ? 2: 3, flip_addr_sz);
                 len = strlen(op1);
-                snprintf(op1+len, sizeof(op1)-len, ", %p", *(char *)++b);
+                snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(char *)++b);
                break;
             case 0x6c:
                 s = flip_addr_sz ? "ins     bytes ptr es:[di], dx": "insb";
@@ -1489,52 +1489,52 @@ int decode(unsigned char *a){
             case 0x70:
                 s = "jo";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x71:
                 s = "jno";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x72:
                 s = "jb";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x73:
                 s = "jnb";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x74:
                 s = "jz";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x75:
                 s = "jnz";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x76:
                 s = "jbe";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x77:
                 s = "ja";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x78:
                 s = "js";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x79:
                 s = "jns";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x7a:
                 s = "jp";
@@ -1543,27 +1543,27 @@ int decode(unsigned char *a){
             case 0x7b:
                 s = "jnp";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x7c:
                 s = "jl";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x7d:
                 s = "jnl";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x7e:
                 s = "jle";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x7f:
                 s = "jnle";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0x80:
                 b += decodeModSM(++b, op1, 1, 0, flip_addr_sz);
@@ -1597,7 +1597,7 @@ int decode(unsigned char *a){
                         exit(-1);
                 }
                 len = strlen(op1);
-                snprintf(op1+len, sizeof(op1)-len, ", %p", *(char *)++b);
+                snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(char *)++b);
                 break;
              case 0x81:
                 b += decodeModSM(++b, op1, 1, 0, flip_addr_sz);
@@ -1632,10 +1632,10 @@ int decode(unsigned char *a){
                 }
                 len = strlen(op1);
                 if(flip_imm_sz){
-                    snprintf(op1+len, sizeof(op1)-len, ", %p", *(short *)++b);
+                    snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1+len, sizeof(op1)-len, ", %p", *(int *)++b);
+                    snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -1671,7 +1671,7 @@ int decode(unsigned char *a){
                         exit(-1);
                 }
                len = strlen(op1);
-                snprintf(op1+len, sizeof(op1)-len, ", %p", *(char *)++b);
+                snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(char *)++b);
                 break;
            case 0x83:
                 b += decodeModSM(++b, op1, 1, 0, flip_addr_sz);
@@ -1705,7 +1705,7 @@ int decode(unsigned char *a){
                         exit(-1);
                 }
                 len = strlen(op1);
-                snprintf(op1+len, sizeof(op1)-len, ", %p", *(char *)++b);
+                snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(char *)++b);
                 break;
             case 0x84:
                 s = "test";
@@ -1788,10 +1788,10 @@ int decode(unsigned char *a){
             case 0x9a:
                 s = "call";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "%p:%p", *(short *)(b+2), *(short *)++b);
+                    snprintf(op1, sizeof(op1), "0x%x:0x%x", *(short *)(b+2), *(short *)++b);
                     b += 3;                
                 } else{
-                    snprintf(op1, sizeof(op1), "far ptr %p:%p", *(short *)(b+4), *(int *)++b);
+                    snprintf(op1, sizeof(op1), "far ptr 0x%x:0x%x", *(short *)(b+4), *(int *)++b);
                     b += 5;
                 }
                 break;
@@ -1812,22 +1812,22 @@ int decode(unsigned char *a){
                 break;
             case 0xa0:
                 s = "mov";
-                snprintf(op1, sizeof(op1), "al, ds:%p", *(int *)++b); //add seg oride
+                snprintf(op1, sizeof(op1), "al, ds:0x%x", *(int *)++b); //add seg oride
                 b += 3;
                 break;
             case 0xa1:
                 s = "mov";
-                snprintf(op1, sizeof(op1), flip_imm_sz ? "ax, ds:%p": "eax, ds:%p", *(int *)++b); //add seg oride
+                snprintf(op1, sizeof(op1), flip_imm_sz ? "ax, ds:0x%x": "eax, ds:0x%x", *(int *)++b); //add seg oride
                 b += 3;
                 break;
             case 0xa2:
                 s = "mov";
-                snprintf(op1, sizeof(op1), "ds:%p, al", *(int *)++b); //add seg oride
+                snprintf(op1, sizeof(op1), "ds:0x%x, al", *(int *)++b); //add seg oride
                 b += 3;
                 break;
             case 0xa3:
                 s = "mov";
-                snprintf(op1, sizeof(op1), flip_imm_sz ? "ds:%p, ax": "ds:%p, eax", *(int *)++b); //add seg oride
+                snprintf(op1, sizeof(op1), flip_imm_sz ? "ds:0x%x, ax": "ds:0x%x, eax", *(int *)++b); //add seg oride
                 b += 3;
                 break;
             case 0xa4:
@@ -1853,15 +1853,15 @@ int decode(unsigned char *a){
             case 0xa8:
                 s = "test";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0xa9:
                 s = "test";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     b += 3;
                 }
                 break;
@@ -1898,120 +1898,120 @@ int decode(unsigned char *a){
             case 0xb0:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0xb1:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "cl, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "cl, 0x%x", (void *)*b);
                 break;
             case 0xb2:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "dl, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "dl, 0x%x", (void *)*b);
                 break;
             case 0xb3:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0xb4:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "ah, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "ah, 0x%x", (void *)*b);
                 break;
             case 0xb5:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "ch, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "ch, 0x%x", (void *)*b);
                 break;
             case 0xb6:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "dh, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "dh, 0x%x", (void *)*b);
                 break;
             case 0xb7:
                 s = "mov";
                 ++b;
-                snprintf(op1, sizeof(op1), "bh, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "bh, 0x%x", (void *)*b);
                 break;
             case 0xb8:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "ax, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "ax, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "eax, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "eax, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xb9:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "cx, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "cx, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "ecx, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "ecx, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xba:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "dx, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "dx, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "edx, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "edx, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xbb:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "bx, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "bx, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "ebx, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "ebx, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xbc:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "sp, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "sp, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "esp, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "esp, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xbd:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "bp, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "bp, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "ebp, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "ebp, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xbe:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "si, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "si, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "esi, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "esi, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xbf:
                 s = "mov";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "di, %p", *(short *)++b);
+                    snprintf(op1, sizeof(op1), "di, 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "edi, %p", *(int *)++b);
+                    snprintf(op1, sizeof(op1), "edi, 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
@@ -2047,7 +2047,7 @@ int decode(unsigned char *a){
                         exit(-1);
                 }
                 len = strlen(op1);
-                snprintf(op1+len, sizeof(op1)-len, ", %p", *(char *)++b);
+                snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(char *)++b);
                 break;
             case 0xc1:
                 b += decodeModSM(++b, op1, 1, 0, flip_addr_sz);
@@ -2081,11 +2081,11 @@ int decode(unsigned char *a){
                         exit(-1);
                 }
                 len = strlen(op1);
-                snprintf(op1+len, sizeof(op1)-len, ", %p", *(char *)++b);
+                snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(char *)++b);
                 break;
            case 0xc2:
                 s = "retn";
-                snprintf(op1, sizeof(op1), "%p", *(short *)++b);
+                snprintf(op1, sizeof(op1), "0x%x", *(short *)++b);
                 ++b;
                 break;
             case 0xc3:
@@ -2103,23 +2103,23 @@ int decode(unsigned char *a){
                 s = "mov";
                 b += decodeModSM(++b, op1, 1, 0, flip_addr_sz);
                 len = strlen(op1);
-                snprintf(op1+len, sizeof(op1)-len, ", %p", *(char *)++b);
+                snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(char *)++b);
                 break;
             case 0xc7:
                 s = "mov";
                 b += decodeModSM(++b, op1, 1, 0, flip_addr_sz);
                 len = strlen(op1);
                 if(flip_imm_sz){
-                    snprintf(op1+len, sizeof(op1)-len, ", %p", *(short *)++b);
+                    snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(short *)++b);
                     ++b;
                 } else{
-                    snprintf(op1+len, sizeof(op1)-len, ", %p", *(int *)++b);
+                    snprintf(op1+len, sizeof(op1)-len, ", 0x%x", *(int *)++b);
                     b += 3;
                 }
                 break;
             case 0xc8:
                 s = "enter";
-                snprintf(op1, sizeof(op1), "%p, %p", *(short *)(b+1), *(char *)(b+3));
+                snprintf(op1, sizeof(op1), "0x%x, 0x%x", *(short *)(b+1), *(char *)(b+3));
                 b += 3;
                 break;
             case 0xc9:
@@ -2127,7 +2127,7 @@ int decode(unsigned char *a){
                 break;
             case 0xca:
                 s = "retf";
-                snprintf(op1, sizeof(op1), "%p", *(short *)++b);
+                snprintf(op1, sizeof(op1), "0x%x", *(short *)++b);
                 ++b;
                 break;
             case 0xcb:
@@ -2139,7 +2139,7 @@ int decode(unsigned char *a){
             case 0xcd:
                 s = "int";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)*b);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)*b);
                 break;
             case 0xce:
                 s = "into";
@@ -2286,12 +2286,12 @@ int decode(unsigned char *a){
            case 0xd4:
                 s = "aam";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)*b);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)*b);
                 break;
             case 0xd5:
                 s = "aad";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)*b);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)*b);
                 break;
             case 0xd6:
                 s = "salc";
@@ -2347,77 +2347,77 @@ int decode(unsigned char *a){
            case 0xe0:
                 s = "loopnz";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0xe1:
                 s = "loopz";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0xe2:
                 s = "loop";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0xe3:
                 s = "jcxz";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0xe4:
                 s = "in";
                 ++b;
-                snprintf(op1, sizeof(op1), "al, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), "al, 0x%x", (void *)*b);
                 break;
             case 0xe5:
                 s = "in";
                 ++b;
-                snprintf(op1, sizeof(op1), flip_imm_sz ? "ax, %p": "eax, %p", (void *)*b);
+                snprintf(op1, sizeof(op1), flip_imm_sz ? "ax, 0x%x": "eax, 0x%x", (void *)*b);
                 break;
             case 0xe6:
                 s = "out";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p, al", (void *)*b);
+                snprintf(op1, sizeof(op1), "0x%x, al", (void *)*b);
                 break;
             case 0xe7:
                 s = "in";
                 ++b;
-                snprintf(op1, sizeof(op1), flip_imm_sz ? "%p, ax": "%p, eax", (void *)*b);
+                snprintf(op1, sizeof(op1), flip_imm_sz ? "0x%x, ax": "0x%x, eax", (void *)*b);
                 break;
             case 0xe8:
                 s = "call";
                 if(flip_imm_sz){
-                snprintf(op1, sizeof(op1), "%p", entry+(int)b-(int)f_entry+*(short *)++b+3);
+                snprintf(op1, sizeof(op1), "0x%x", entry+(int)b-(int)f_entry+*(short *)++b+3);
                     b += 2;
                 } else{
-                    snprintf(op1, sizeof(op1), "%p",(void *)entry+(int)b-(int)f_entry+*(int *)++b+4);
+                    snprintf(op1, sizeof(op1), "0x%x",(void *)entry+(int)b-(int)f_entry+*(int *)++b+4);
                     b += 3;
                 }
                 break;
             case 0xe9:
                 s = "jmp";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "near ptr %p", entry+(int)b-(int)f_entry+*(short *)++b+3);
+                    snprintf(op1, sizeof(op1), "near ptr 0x%x", entry+(int)b-(int)f_entry+*(short *)++b+3);
                     ++b;
                 } else{
-                    snprintf(op1, sizeof(op1), "near ptr %p", (void *)entry+(int)b-(int)f_entry+*(int *)++b+4);
+                    snprintf(op1, sizeof(op1), "near ptr 0x%x", (void *)entry+(int)b-(int)f_entry+*(int *)++b+4);
                     b += 3;
                 }
                 break;
             case 0xea:
                 s = "jmp";
                 if(flip_imm_sz){
-                    snprintf(op1, sizeof(op1), "%p:%p", *(short *)(b+2), *(short *)++b);
+                    snprintf(op1, sizeof(op1), "0x%x:0x%x", *(short *)(b+2), *(short *)++b);
                     b += 3;
                 } else{
-                    snprintf(op1, sizeof(op1), "%p:%p", *(short *)(b+4), *(int *)++b);
+                    snprintf(op1, sizeof(op1), "0x%x:0x%x", *(short *)(b+4), *(int *)++b);
                     b += 5;
                 }
                 break;
             case 0xeb:
                 s = "jmp";
                 ++b;
-                snprintf(op1, sizeof(op1), "%p", (void *)entry+(int)b-(int)f_entry+*b+1);
+                snprintf(op1, sizeof(op1), "0x%x", (void *)entry+(int)b-(int)f_entry+*b+1);
                 break;
             case 0xec:
                 s = "in      al, dx";
@@ -2446,12 +2446,12 @@ int decode(unsigned char *a){
                     case 0:
                         s = "test";
                         len = strlen(op1);
-                        snprintf(op1+len, sizeof(op1)-len, "%p", *(char *)++b);
+                        snprintf(op1+len, sizeof(op1)-len, "0x%x", *(char *)++b);
                         break;
                     case 1:
                         s = "test";
                         len = strlen(op1);
-                        snprintf(op1+len, sizeof(op1)-len, "%p", *(char *)++b);
+                        snprintf(op1+len, sizeof(op1)-len, "0x%x", *(char *)++b);
                         break;
                     case 2:
                         s = "not";
@@ -2483,10 +2483,10 @@ int decode(unsigned char *a){
                         s = "test";
                         len = strlen(op1);
                         if(flip_imm_sz){
-                            snprintf(op1+len, sizeof(op1)-len, "%p", *(short *)++b);
+                            snprintf(op1+len, sizeof(op1)-len, "0x%x", *(short *)++b);
                             ++b;
                         } else{
-                            snprintf(op1+len, sizeof(op1)-len, "%p", *(int *)++b);
+                            snprintf(op1+len, sizeof(op1)-len, "0x%x", *(int *)++b);
                             b += 3;
                         }
                         break;
@@ -2494,10 +2494,10 @@ int decode(unsigned char *a){
                         s = "test";
                         len = strlen(op1);
                         if(flip_imm_sz){
-                            snprintf(op1+len, sizeof(op1)-len, "%p", *(short *)++b);
+                            snprintf(op1+len, sizeof(op1)-len, "0x%x", *(short *)++b);
                             ++b;
                         } else{
-                            snprintf(op1+len, sizeof(op1)-len, "%p", *(int *)++b);
+                            snprintf(op1+len, sizeof(op1)-len, "0x%x", *(int *)++b);
                             b += 3;
                         }
                         break;
@@ -2593,7 +2593,7 @@ int decode(unsigned char *a){
                 exit(-1);
         }
 
-        printf("%p:  %-7s %s\n", entry+(int)a-(int)f_entry, s, op1);
+        printf("0x%x:  %-7s %s\n", entry+(int)a-(int)f_entry, s, op1);
         ++b;
 
     }
